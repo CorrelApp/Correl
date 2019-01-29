@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Goal" representedClassName="GoalMO" syncable="YES" codeGenerationType="class">
+        <attribute name="comparator" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="instances" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timeFrame" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="trackable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trackable" inverseName="goals" inverseEntity="Trackable" syncable="YES"/>
+    </entity>
+    <entity name="InputList" representedClassName="InputListMO" syncable="YES" codeGenerationType="class">
+        <attribute name="inputs" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="trackable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trackable" inverseName="inputList" inverseEntity="Trackable" syncable="YES"/>
+    </entity>
+    <entity name="Instance" representedClassName="InstanceMO" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="trackable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trackable" inverseName="instances" inverseEntity="Trackable" syncable="YES"/>
+    </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
+        <attribute name="lastMinuteTIme" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="summaryTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="trackableTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Trackable" representedClassName="TrackableMO" syncable="YES" codeGenerationType="class">
+        <attribute name="input" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="max" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="min" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeatable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="trackable" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="inputList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InputList" inverseName="trackable" inverseEntity="InputList" syncable="YES"/>
+        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Instance" inverseName="trackable" inverseEntity="Instance" syncable="YES"/>
+        <userInfo>
+            <entry key="1" value="bool"/>
+            <entry key="2" value="int"/>
+            <entry key="3" value="float"/>
+            <entry key="4" value="string"/>
+        </userInfo>
+    </entity>
+    <elements>
+        <element name="Goal" positionX="9" positionY="90" width="128" height="135"/>
+        <element name="InputList" positionX="36" positionY="126" width="128" height="75"/>
+        <element name="Instance" positionX="18" positionY="117" width="128" height="90"/>
+        <element name="Settings" positionX="27" positionY="126" width="128" height="90"/>
+        <element name="Trackable" positionX="-18" positionY="27" width="128" height="180"/>
+    </elements>
+</model>
